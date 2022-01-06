@@ -1,5 +1,8 @@
 import styled from 'styled-components'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import PorcentContext from "../../contexts/PorcentContext";
+
+
 
 const Navbar = styled.div`
     height: 70px;
@@ -104,5 +107,29 @@ const Conteudo = styled.div`
     width: 100%;
     background-color: #E5E5E5;
 `
+const Data = styled.div`
+    padding-top:98px;
+    padding-left:17px;
+    display: flex;
+    flex-direction: column;
+    h1{
+        font-size: 23px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 29px;
+        letter-spacing: 0em;
+        text-align: left;
+        color:#126BA5;
+    }
+    span{
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: ${props => props.porcent ==0 ? "#BABABA":"#8FC549"};
+    }
+`
 
-export {Centro, Foot,Navbar, ProgressBar, Conteudo}
+export {Centro, Foot,Navbar, ProgressBar, Conteudo, Data}

@@ -109,12 +109,13 @@ const Conteudo = styled.div`
     width: 100%;
     background-color: #E5E5E5;
 `
-const Data = styled.div`
+const Titulo = styled.div`
     padding-top:28px;
     padding-bottom:28px;
     padding-left:17px;
+    padding-right:17px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     h1{
         font-size: 23px;
         font-style: normal;
@@ -124,16 +125,21 @@ const Data = styled.div`
         text-align: left;
         color:#126BA5;
     }
-    span{
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 22px;
-        letter-spacing: 0em;
-        text-align: left;
-        color: ${props => props.porcent ==0 ? "#BABABA":"#8FC549"};
+    div{
+        height: 35px;
+        width: 40px;
+        border-radius: 4.636363506317139px;
+        background-color: #52B6FF;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        .icone{
+            height: 30px;
+            width: 25px;
+            color: #FFFFFF;
+        }
     }
 `
 
 
-export {Centro, Foot,Navbar, ProgressBar, Conteudo, Data}
+export {Centro, Foot,Navbar, ProgressBar, Conteudo, Titulo}

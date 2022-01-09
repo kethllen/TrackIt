@@ -54,8 +54,8 @@ export default function CriandoHabito({setCriar, setAtualizar, atualizar, criar}
                     active={active}
                 />
             <DiasdaSemana>
-                <Dia  active={7} days={formData.days} onClick={()=>  {formData.days.includes(7) ? formData.days.splice(formData.days.indexOf(7), 1) :
-                                                                        formData.days.push(7); (click === false) ? setClick(true): setClick(false)}}>D</Dia>
+                <Dia  active={0} days={formData.days} onClick={()=>  {formData.days.includes(0) ? formData.days.splice(formData.days.indexOf(0), 1) :
+                    formData.days.push(0); (click === false) ? setClick(true): setClick(false)}}>D</Dia>
                 <Dia  active={1} days={formData.days} onClick={()=>  {formData.days.includes(1) ? formData.days.splice(formData.days.indexOf(1), 1) :
                     formData.days.push(1); (click === false) ? setClick(true): setClick(false)}}>S</Dia>
                 <Dia  active={2} days={formData.days} onClick={()=>  {formData.days.includes(2) ? formData.days.splice(formData.days.indexOf(2), 1) :

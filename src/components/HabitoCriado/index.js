@@ -30,7 +30,7 @@ export default function HabitoCriado({id, name, days, setAtualizar, atualizar}){
         <Habito>
             <Titulo>{name}</Titulo>
             <DiasdaSemana>
-                <Dia  active={7} days={days}>D</Dia>
+                <Dia  active={0} days={days}>D</Dia>
                 <Dia  active={1} days={days}>S</Dia>
                 <Dia  active={2} days={days}>T</Dia>
                 <Dia  active={3} days={days}>Q</Dia>

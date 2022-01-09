@@ -31,12 +31,13 @@ export default function HojePage(){
         const promise = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/today", config)
         promise.then(response => {
             setHabitos(response.data);
+            console.log(habitos)
           });
           promise.catch(error => {
-              alert(error.response.data.message)
+            alert(error.response.data.message)
           });
     },[check])
-
+    
     const diasDaSemana ={
         Monday: 'Segunda',
         Tuesday: 'Terça',
@@ -46,11 +47,12 @@ export default function HojePage(){
         Saturday: 'Sábado',
         Sunday: 'Domingo'
     }
+    setPorcent(0);
     data = diasDaSemana[dia] +', '+ data;
     if(habitos!== null){
         habitos.map(habito => (habito.done ==true) && feitos++)
         let porc = Math.ceil((feitos/(habitos.length))*100)
-        setPorcent(porc)
+        if(porcent > 0)setPorcent(porc)
     }
     if(token=='')
         return;
@@ -62,7 +64,7 @@ export default function HojePage(){
             </Navbar>
             <Data porcent={porcent}>
                 <h1>{data}</h1>
-                <span>{porcent==0 ? "Nenhum hábito concluído ainda": `${porcent}% dos hábitos concluídos`}</span>
+                <span>{(porcent==0||porcent==NaN) ? "Nenhum hábito concluído ainda": `${porcent}% dos hábitos concluídos`}</span>
             </Data>
             {habitos!== null ? habitos.map(habito => <Habitos id={habito.id} name= {habito.name} currentSequence={habito.currentSequence} highestSequence={habito.highestSequence} done={habito.done} check={check} setCheck={setCheck}/>):''}
             <Foot>

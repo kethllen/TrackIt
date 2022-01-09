@@ -36,7 +36,7 @@ export default function HabitosPage(){
             alert(error.response.data.message)
           });
     }, [atualizar])
-  
+    console.log(habitos)
     if(token=='')
         return;
     return(

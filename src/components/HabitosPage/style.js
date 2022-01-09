@@ -111,7 +111,6 @@ const Conteudo = styled.div`
 `
 const Titulo = styled.div`
     padding-top:28px;
-    padding-bottom:28px;
     padding-left:17px;
     padding-right:17px;
     display: flex;
@@ -140,6 +139,21 @@ const Titulo = styled.div`
         }
     }
 `
+const SubTitulo = styled.div`
+
+padding-top:28px;
+padding-left:17px;
+padding-right:20px;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 22px;
+letter-spacing: 0em;
+text-align: left;
+color: #666666;
 
 
-export {Centro, Foot,Navbar, ProgressBar, Conteudo, Titulo}
+
+`
+
+export {Centro, Foot,Navbar, ProgressBar, Conteudo, Titulo, SubTitulo }

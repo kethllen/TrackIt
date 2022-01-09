@@ -18,6 +18,8 @@ export default function HojePage(){
     const {image, setImage} = useContext(ImageContext)
     const {porcent, setPorcent} = useContext(PorcentContext)
     const [habitos, setHabitos] = useState(null);
+    const [check, setCheck] = useState(0);
+    let feitos=0 ;
     let dia = dayjs().locale('pt-br').format('dddd')
     let data = dayjs().locale('pt-br').format('DD/MM')
     const config = {
@@ -33,7 +35,7 @@ export default function HojePage(){
           promise.catch(error => {
               alert(error.response.data.message)
           });
-    },[])
+    },[check])
 
     const diasDaSemana ={
         Monday: 'Segunda',
@@ -45,7 +47,11 @@ export default function HojePage(){
         Sunday: 'Domingo'
     }
     data = diasDaSemana[dia] +', '+ data;
-
+    if(habitos!== null){
+        habitos.map(habito => (habito.done ==true) && feitos++)
+        let porc = Math.ceil((feitos/(habitos.length))*100)
+        setPorcent(porc)
+    }
     if(token=='')
         return;
     return(
@@ -58,7 +64,7 @@ export default function HojePage(){
                 <h1>{data}</h1>
                 <span>{porcent==0 ? "Nenhum hábito concluído ainda": `${porcent}% dos hábitos concluídos`}</span>
             </Data>
-            {habitos!== null ? habitos.map(habito => <Habitos id={habito.id} name= {habito.name} currentSequence={habito.currentSequence} highestSequence={habito.highestSequence} done={habito.done}/>):''}
+            {habitos!== null ? habitos.map(habito => <Habitos id={habito.id} name= {habito.name} currentSequence={habito.currentSequence} highestSequence={habito.highestSequence} done={habito.done} check={check} setCheck={setCheck}/>):''}
             <Foot>
                 <Link to={`/habitos`}>
                     <span>Hábitos</span>

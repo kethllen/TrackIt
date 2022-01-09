@@ -52,8 +52,7 @@ export default function HabitosPage(){
                     <IconeAdicionar className="icone"/>
                 </div>
             </Titulo>
-            {criar===true &&
-            <CriandoHabito setCriar={setCriar} setAtualizar={setAtualizar} atualizar={atualizar}/>}
+            <CriandoHabito setCriar={setCriar} setAtualizar={setAtualizar} atualizar={atualizar} criar={criar}/>
             {(habitos === null || habitos.length===0) ?
             <SubTitulo>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!
             </SubTitulo>: (habitos!== null || atualizar>0) ? habitos.map(habito => <HabitoCriado id={habito.id} name= {habito.name} days={habito.days} setAtualizar={setAtualizar} atualizar={atualizar}/>):''}

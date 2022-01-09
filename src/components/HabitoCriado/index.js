@@ -15,13 +15,15 @@ export default function HabitoCriado({id, name, days, setAtualizar, atualizar}){
         }
     }
     function remover(){
-        const promise = axios.delete(`https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${id}`, config)
-        promise.then(response => {
-            setAtualizar(atualizar +1);
-          });
-          promise.catch(error => {
-              alert(error.response.data.message)
-          });
+        if (window.confirm("Você realmente quer remover este habito?")) {
+            const promise = axios.delete(`https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${id}`, config)
+            promise.then(response => {
+                setAtualizar(atualizar +1);
+            });
+            promise.catch(error => {
+                alert(error.response.data.message)
+            });
+        }
     }
     return (
         

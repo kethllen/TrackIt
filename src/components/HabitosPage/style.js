@@ -63,10 +63,10 @@ const Foot = styled.div`
 const Centro = styled.div`
     width: 91px;
     height: 91px;
-    position: absolute;
+    position: fixed;
     margin-left: auto;
     margin-right: auto;
-    bottom:10px;
+    bottom:20px;
     left: 0;
     right: 0;
     text-align: center;

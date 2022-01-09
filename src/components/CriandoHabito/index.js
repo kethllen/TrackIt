@@ -6,7 +6,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router';
 import TokenContext from "../../contexts/TokenContext";
 
-export default function CriandoHabito({setCriar, setAtualizar, atualizar}){
+export default function CriandoHabito({setCriar, setAtualizar, atualizar, criar}){
     const [formData, setFormData] = useState({
         name: '',
         days: []
@@ -24,11 +24,17 @@ export default function CriandoHabito({setCriar, setAtualizar, atualizar}){
     
         promise.then(response => {
             setCriar(false);
+            setFormData({
+                name: '',
+                days: []
+              })
             setAtualizar(atualizar+1);
+            setActive(false);
             
         });
         promise.catch(error => {
             alert(error.response.data.message)
+            setActive(false);
             setFormData({
                 name: '',
                 days: []
@@ -37,7 +43,7 @@ export default function CriandoHabito({setCriar, setAtualizar, atualizar}){
     }
     return (
         
-        <Habito>
+        <Habito mostrar = {criar}>
             <form onSubmit={handleSave}>
             <Input
                     type="text"

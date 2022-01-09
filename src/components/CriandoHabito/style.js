@@ -11,6 +11,7 @@ padding-left: 18px;
 padding-right:18px;
 background: #FFFFFF;
 position: relative;
+display: ${({mostrar}) => !mostrar && 'none'};
 `
 const DiasdaSemana = styled.div`
 height: 30px;

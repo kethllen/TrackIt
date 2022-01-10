@@ -52,7 +52,7 @@ export default function HojePage(){
     if(habitos!== null){
         habitos.map(habito => (habito.done ==true) && feitos++)
         let porc = Math.ceil((feitos/(habitos.length))*100)
-        if(porcent > 0)setPorcent(porc)
+        setPorcent(porc)
     }
     if(token=='')
         return;

@@ -12,7 +12,8 @@ import ImageContext from "../../contexts/ImageContext";
 
 
 export default function LoginPage(){
-    const {token, setToken} = useContext(TokenContext)
+    //const {token, setToken} = useContext(TokenContext)
+    const { setAndPersistToken } = useContext(TokenContext);
     const {name, setName} = useContext(NameContext)
     const {image, setImage} = useContext(ImageContext)
     const [email, setEmail] = useState('');
@@ -28,7 +29,7 @@ export default function LoginPage(){
         });
     
         promise.then(response => {
-          setToken(response.data.token);
+          setAndPersistToken(response.data.token);
           setName(response.data.name);
           setImage(response.data.image);
           navigate('/hoje')

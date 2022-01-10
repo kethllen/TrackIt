@@ -11,12 +11,19 @@ import ImageContext from "./contexts/ImageContext";
 import PorcentContext from "./contexts/PorcentContext";
 
 export default function App() {
-    const [token, setToken] = useState('');
     const [name, setName] = useState('');
     const [image, setImage] = useState('');
     const [porcent, setPorcent] = useState(0);
+    const tokenOnLocalStorage = localStorage.getItem("token");
+
+	const [token, setToken] = useState(tokenOnLocalStorage);
+
+	function setAndPersistToken(token) {
+		setToken(token);
+		localStorage.setItem("token", token);
+    }
   return (
-    <TokenContext.Provider value={{token, setToken}}>
+    <TokenContext.Provider value={{token, setToken, setAndPersistToken}}>
         <NameContext.Provider value={{name, setName}}>
             <ImageContext.Provider value={{image, setImage}}>
                 <PorcentContext.Provider value={{porcent, setPorcent}}>

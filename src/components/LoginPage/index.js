@@ -12,10 +12,8 @@ import ImageContext from "../../contexts/ImageContext";
 
 
 export default function LoginPage(){
-    //const {token, setToken} = useContext(TokenContext)
     const { setAndPersistToken } = useContext(TokenContext);
-    const {name, setName} = useContext(NameContext)
-    const {image, setImage} = useContext(ImageContext)
+    const { setAndPersistImage } = useContext(ImageContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [active, setActive] = useState(false);
@@ -30,8 +28,7 @@ export default function LoginPage(){
     
         promise.then(response => {
           setAndPersistToken(response.data.token);
-          setName(response.data.name);
-          setImage(response.data.image);
+          setAndPersistImage(response.data.image);
           navigate('/hoje')
         });
         promise.catch(error => {
@@ -49,7 +46,6 @@ export default function LoginPage(){
                 <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="email" active={active}/>
                 <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="senha" active={active}/>
                 <Button type="submit" active={active}>{active ? <LoadButton/> : "Entrar"}</Button>
-                
             </form>
             <StyledLink to="/cadastro">Não tem uma conta? Cadastre-se!</StyledLink>
         </Container>       

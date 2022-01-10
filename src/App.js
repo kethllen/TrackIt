@@ -12,20 +12,24 @@ import PorcentContext from "./contexts/PorcentContext";
 
 export default function App() {
     const [name, setName] = useState('');
-    const [image, setImage] = useState('');
     const [porcent, setPorcent] = useState(0);
     const tokenOnLocalStorage = localStorage.getItem("token");
-
+    const imageOnLocalStorage = localStorage.getItem("image");
 	const [token, setToken] = useState(tokenOnLocalStorage);
+    const [image, setImage] = useState(imageOnLocalStorage);
 
 	function setAndPersistToken(token) {
 		setToken(token);
 		localStorage.setItem("token", token);
     }
+    function setAndPersistImage(image) {
+		setImage(image);
+		localStorage.setItem("image", image);
+    }
   return (
     <TokenContext.Provider value={{token, setToken, setAndPersistToken}}>
         <NameContext.Provider value={{name, setName}}>
-            <ImageContext.Provider value={{image, setImage}}>
+            <ImageContext.Provider value={{image, setImage, setAndPersistImage}}>
                 <PorcentContext.Provider value={{porcent, setPorcent}}>
                     <BrowserRouter>
                         <Routes>

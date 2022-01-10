@@ -14,7 +14,6 @@ import { Link } from 'react-router-dom';
 export default function HojePage(){
     var dayjs = require('dayjs')
     const {token, setToken} = useContext(TokenContext)
-    const {name, setName} = useContext(NameContext)
     const {image, setImage} = useContext(ImageContext)
     const {porcent, setPorcent} = useContext(PorcentContext)
     const [habitos, setHabitos] = useState(null);
